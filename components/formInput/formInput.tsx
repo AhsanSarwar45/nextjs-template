@@ -1,8 +1,4 @@
 import {
-    Text,
-    Input,
-    VStack,
-    HStack,
     InputGroup,
     Icon,
     Tooltip,
@@ -11,12 +7,7 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { BsExclamationCircle } from "react-icons/bs";
-// import Tooltip from "./tootip";
-
-interface FormInputProps {
-    fieldName: string;
-    formikProps: any;
-}
+import { FormInputProps } from "./types";
 
 const FormInput = (props: FormInputProps & InputGroupProps) => {
     const { fieldName, formikProps, ...inputGroupProps } = props;
@@ -33,7 +24,6 @@ const FormInput = (props: FormInputProps & InputGroupProps) => {
                     bgColor="brand.accent"
                     color="text.primary"
                     isOpen={isErrorOpen}
-                    // direction="right"
                 >
                     <InputRightElement
                         id={`${props.fieldName}-input-error-icon`}

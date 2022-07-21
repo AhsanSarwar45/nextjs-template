@@ -1,16 +1,9 @@
 import { useRouter } from "next/router";
-import Anchor from "./anchor/anchor";
-import TextButton from "./textButton";
+import Anchor from "../anchor/anchor";
+import TextButton from "../textButton/textButton";
+import { LinkProps } from "./types";
 
-interface NavLinkProps {
-    href: string;
-    label: string;
-    color: string;
-    fontSize: any;
-    isExternal: boolean;
-}
-
-const Link = (props: NavLinkProps) => {
+const Link = (props: LinkProps) => {
     const router = useRouter();
 
     return (

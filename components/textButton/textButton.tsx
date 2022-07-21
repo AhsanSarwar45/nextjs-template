@@ -1,15 +1,7 @@
 import { VStack, Box, Text } from "@chakra-ui/react";
 import { useAnimation, Variants, motion } from "framer-motion";
-import { useRouter } from "next/router";
 import React from "react";
-
-interface TextButtonProps {
-    label: string;
-    onClick: () => void;
-    color: string;
-    fontSize: any;
-    underlined: boolean;
-}
+import { TextButtonProps } from "./types";
 
 const TextButton = (props: TextButtonProps) => {
     const animationControls = useAnimation();
