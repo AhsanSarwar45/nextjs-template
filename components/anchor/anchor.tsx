@@ -3,6 +3,8 @@ import NextLink from "next/link";
 import { AnchorProps } from "./types";
 
 const Anchor = (props: AnchorProps) => {
+    // If link is external, we want to open it in new tab by using
+    // the target and rel attributes.
     const aProps = props.isExternal
         ? { target: "_blank", rel: "noopener noreferrer" }
         : {};
