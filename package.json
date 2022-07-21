@@ -2,20 +2,29 @@
   "name": "nextjs-portfolio-template",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "e2e": "cypress open",
+    "gen:theme-typings": "chakra-cli tokens themes/theme.ts",
+    "postinstall": "npm run gen:theme-typings",
+    "tsnode": "node --loader ts-node/esm --no-warnings",
+    "gen-component": "npm run tsnode ./scripts/genComponentScript.mts"
   },
   "dependencies": {
+    "@chakra-ui/cli": "^2.1.2",
     "@chakra-ui/react": "^2.2.4",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "formik": "^2.2.9",
     "framer-motion": "^6.5.1",
     "next": "12.2.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.4.0"
   },
   "devDependencies": {
     "@types/node": "18.0.6",
@@ -24,6 +33,7 @@
     "cypress": "^10.3.1",
     "eslint": "8.20.0",
     "eslint-config-next": "12.2.2",
+    "ts-node": "^10.9.1",
     "typescript": "4.7.4"
   }
 }
