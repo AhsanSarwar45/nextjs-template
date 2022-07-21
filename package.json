@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "e2e": "cypress open",
+    "e2e": "npx cypress open",
     "gen:theme-typings": "chakra-cli tokens themes/theme.ts",
     "postinstall": "npm run gen:theme-typings",
     "tsnode": "node --loader ts-node/esm --no-warnings",
