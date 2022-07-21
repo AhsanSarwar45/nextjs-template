@@ -13,8 +13,58 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/themes/*": [
+        "themes/*"
+      ],
+      "@/styles/*": [
+        "styles/*"
+      ],
+      "@/pages/*": [
+        "pages/*"
+      ],
+      "@/types/*": [
+        "types/*"
+      ],
+      "@/interfaces/*": [
+        "interfaces/*"
+      ],
+      "@/api/*": [
+        "pages/api/*"
+      ],
+      "@/hooks/*": [
+        "hooks/*"
+      ],
+      "@/utils/*": [
+        "utils/*"
+      ],
+      "@/plugins/*": [
+        "plugins/*"
+      ],
+      "@/public/*": [
+        "public/*"
+      ],
+      "@/data/*": [
+        "data/*"
+      ],
+      "@/utility/*": [
+        "utility/*"
+      ],
+      "@/cms/*": [
+        "cms/*"
+      ]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "types": [
+    "node",
+    "jest",
+    "@testing-library/jest-dom"
+  ]
 }
