@@ -15,11 +15,11 @@ Also contains common components that I use in my projects. You can delete them i
 The components follow the following conventions:
 
 ```ts
--folderName | // in camelCase
-    -index.js | // to export components and types
-    -types.ts | // for types and interfaces
-    -animations.ts | // for animations
-    -componentName.ts; // where the component is implemented (in camelCase)
+folderName; // in camelCase
+index.js; // to export components and types
+types.ts; // for types and interfaces
+animations.ts; // for animations
+componentName.ts; // where the component is implemented (in camelCase)
 ```
 
 There is a script to generate components with all the required files. Use it like this:
