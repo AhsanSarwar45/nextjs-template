@@ -1,11 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
 const sendEmail = (req: NextApiRequest, res: NextApiResponse) => {
+    const user = process.env.email_user;
+    const password = process.env.email_pass;
     const nodeoutlook = require("nodejs-nodemailer-outlook");
     nodeoutlook.sendEmail({
         auth: {
-            user: "arcane_art_site@outlook.com",
-            pass: "Hoy06302",
+            user: { user },
+            pass: { password },
         },
         from: "arcane_art_site@outlook.com",
         to: "azeemsarwarrockzs@gmail.com",
