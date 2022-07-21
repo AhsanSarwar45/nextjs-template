@@ -1,15 +1,4 @@
-import {
-    VStack,
-    Text,
-    Spacer,
-    Button,
-    Box,
-    useBreakpointValue,
-    useToast,
-    HStack,
-} from "@chakra-ui/react";
 import { Formik } from "formik";
-import { motion } from "framer-motion";
 import FormikTextArea from "@/components/formikTextArea";
 import FormikInput from "@/components/formikInput";
 

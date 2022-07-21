@@ -1,4 +1,4 @@
-import { VStack, Box } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
 import { useEffect, useRef, useState } from "react";
