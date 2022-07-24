@@ -11,7 +11,8 @@
     "gen:theme-typings": "chakra-cli tokens themes/theme.ts",
     "postinstall": "npm run gen:theme-typings",
     "tsnode": "node --loader ts-node/esm --no-warnings",
-    "gen-component": "npm run tsnode ./scripts/genComponentScript.mts"
+    "gen-component": "npm run tsnode ./scripts/genComponentScript.mts",
+    "init-cms": "npm run tsnode ./scripts/initSanityCmsScript.mts"
   },
   "dependencies": {
     "@chakra-ui/cli": "^2.1.2",
@@ -26,6 +27,8 @@
     "react-icons": "^4.4.0"
   },
   "devDependencies": {
+    "@svgr/webpack": "^6.3.1",
+    "@types/async": "^3.2.15",
     "@types/node": "18.0.6",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
