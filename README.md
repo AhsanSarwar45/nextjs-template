@@ -9,10 +9,11 @@ A template built on the following stack:
 -   [Cypress](https://cypress.io/) for e2e, component and unit testing
 -   [Formik](https://jaredpalmer.com/formik/) for form validation
 -   [React-icons](https://react-icons.netlify.com/) for icons
+-   [SVGR](https://react-svgr.com/) for SVG
 
 Also contains common components that I use in my projects. You can delete them if you don't need them.
 
-The components follow the following conventions:
+The component files follow the following conventions:
 
 ```ts
 folderName; // in camelCase

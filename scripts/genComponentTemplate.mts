@@ -5,7 +5,7 @@ import React from 'react';
 import { ${name}Props } from './types';
     
 export const ${name} = ({}: ${name}Props) => {
-  return <></>;
+  return (<></>);
 };
 `;
 

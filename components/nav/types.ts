@@ -1,1 +1,3 @@
-export interface NavProps {}
+export interface NavProps {
+    direction: "row" | "column";
+}

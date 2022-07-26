@@ -4,43 +4,42 @@ import { motion, Variants } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 import Footer from "@/components/footer";
-import Header from "@/components/header";
+import Head from "@/components/head";
 import Nav from "@/components/nav";
-import { PageProps } from "./types";
+import { AnimatedPageProps, PageProps } from "./types";
 import { animation } from "./animations";
 import useCollapsibleMenu from "@/hooks/useCollapsibleMenu";
 
 const Page = (props: PageProps) => {
     const { isMenuOpen, setIsMenuOpen, contentRef } = useCollapsibleMenu();
 
-    const Internal = () => (
-        <>
-            <Header title={props.title} />
+    return (
+        <VStack ref={contentRef}>
+            <Head title={props.title} />
             <Nav />
-            <VStack ref={contentRef}>
-                {props.children}
-                <Footer />
-            </VStack>
-        </>
+            <main>{props.children}</main>
+            <Footer />
+        </VStack>
     );
+};
 
-    return props.animatable ? (
+export const AnimatedPage = (props: AnimatedPageProps) => {
+    const { animationVariants, ...pageProps } = props;
+
+    return (
         <motion.main
             key={props.title}
-            variants={props.animationVariants}
+            variants={props.animationVariants as any}
             initial="initial"
             animate="enter"
             exit="exit"
         >
-            <Internal />
+            <Page {...pageProps} />
         </motion.main>
-    ) : (
-        <Internal />
     );
 };
 
-Page.defaultProps = {
-    animatable: true,
+AnimatedPage.defaultProps = {
     animationVariants: animation,
 };
 

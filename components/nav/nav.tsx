@@ -1,19 +1,16 @@
-import React, { useCallback, useEffect } from "react";
+import { Flex } from "@chakra-ui/react";
 import { NavProps } from "./types";
 
 const Nav = (props: NavProps) => {
-    const handleScroll = useCallback(() => {}, []);
+    return (
+        <nav>
+            <Flex direction={props.direction} position="fixed" top="0"></Flex>
+        </nav>
+    );
+};
 
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-        handleScroll();
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, [handleScroll]);
-
-    return <></>;
+Nav.defaultProps = {
+    direction: "row",
 };
 
 export default Nav;
