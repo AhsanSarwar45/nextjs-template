@@ -1,14 +1,12 @@
 import { useBreakpoint, useBreakpointValue, VStack } from "@chakra-ui/react";
 import { motion, Variants } from "framer-motion";
 
-import { useEffect, useRef, useState } from "react";
+import { animation } from "./animations";
+import { AnimatedPageProps, PageProps } from "./types";
 
 import Footer from "@/components/footer";
 import Head from "@/components/head";
-import Nav from "@/components/nav";
-import { AnimatedPageProps, PageProps } from "./types";
-import { animation } from "./animations";
-import { CollapsibleNav } from "../nav/nav";
+import Nav, { CollapsibleNav } from "@/components/nav";
 
 const Page = (props: PageProps) => {
     const isSmallScreen = useBreakpointValue({

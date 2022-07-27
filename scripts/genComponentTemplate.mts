@@ -25,6 +25,11 @@ export interface ${name}Props {
 
 // index.ts
 export const barrel = (name: string, camelCaseName: string) => `
-export default ${name} from './${camelCaseName}';
+import ${name} from './${camelCaseName}';
+
+export * from './${camelCaseName}';
 export * from "./types";
+
+export default ${name};
+
 `;
