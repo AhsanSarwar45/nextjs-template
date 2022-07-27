@@ -1,4 +1,4 @@
-import Head from "./header";
+import Head from "./head";
 
 export * from "./types";
 export default Head;

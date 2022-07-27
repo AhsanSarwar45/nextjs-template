@@ -1,26 +1,25 @@
 import { useState, useRef, useEffect, Ref, RefObject } from "react";
 
-const useCollapsibleMenu = () => {
+const useFullScreenMenu = () => {
     const [isMenuOpen, _setIsMenuOpen] = useState(false);
     const contentRef = useRef<HTMLDivElement>(null);
     const onMenuOpenScrollPos = useRef({ x: 0, y: 0 });
-    const initialDisplayStyle = useRef("");
+    const initialStyle = useRef("");
 
     const setIsMenuOpen = (isOpen: boolean) => {
+        const contentElement = contentRef.current
+            ? contentRef.current
+            : document.documentElement;
+
         if (isOpen) {
             onMenuOpenScrollPos.current = {
                 x: window.scrollX,
                 y: window.scrollY,
             };
-            if (contentRef.current) {
-                initialDisplayStyle.current = contentRef.current.style.display;
-                contentRef.current.style.display = "none";
-            }
+            initialStyle.current = contentElement.style.overflowY;
+            contentElement.style.overflowY = "hidden";
         } else {
-            if (contentRef.current) {
-                contentRef.current.style.display =
-                    initialDisplayStyle.current as string;
-            }
+            contentElement.style.overflowY = initialStyle.current;
         }
 
         _setIsMenuOpen(isOpen);
@@ -38,4 +37,4 @@ const useCollapsibleMenu = () => {
     return { isMenuOpen, setIsMenuOpen, contentRef };
 };
 
-export default useCollapsibleMenu;
+export default useFullScreenMenu;

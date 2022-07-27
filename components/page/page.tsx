@@ -1,4 +1,4 @@
-import { VStack } from "@chakra-ui/react";
+import { useBreakpoint, useBreakpointValue, VStack } from "@chakra-ui/react";
 import { motion, Variants } from "framer-motion";
 
 import { useEffect, useRef, useState } from "react";
@@ -8,15 +8,19 @@ import Head from "@/components/head";
 import Nav from "@/components/nav";
 import { AnimatedPageProps, PageProps } from "./types";
 import { animation } from "./animations";
-import useCollapsibleMenu from "@/hooks/useCollapsibleMenu";
+import { CollapsibleNav } from "../nav/nav";
 
 const Page = (props: PageProps) => {
-    const { isMenuOpen, setIsMenuOpen, contentRef } = useCollapsibleMenu();
+    const isSmallScreen = useBreakpointValue({
+        base: true,
+        xs: true,
+        md: false,
+    });
 
     return (
-        <VStack ref={contentRef}>
+        <VStack>
             <Head title={props.title} />
-            <Nav />
+            {isSmallScreen ? <CollapsibleNav /> : <Nav />}
             <main>{props.children}</main>
             <Footer />
         </VStack>

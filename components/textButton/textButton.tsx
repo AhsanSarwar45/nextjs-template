@@ -1,7 +1,11 @@
+// External imports
 import { VStack, Box, Text } from "@chakra-ui/react";
 import { useAnimation, Variants, motion } from "framer-motion";
-import React from "react";
+
+// Component imports
 import { TextButtonProps } from "./types";
+
+// Project imports
 
 const TextButton = (props: TextButtonProps) => {
     const animationControls = useAnimation();
@@ -25,6 +29,7 @@ const TextButton = (props: TextButtonProps) => {
             cursor="pointer"
             onMouseEnter={() => {
                 animationControls.start("onHover");
+                console.log("onHover");
             }}
             onMouseLeave={() => {
                 animationControls.start("initial");

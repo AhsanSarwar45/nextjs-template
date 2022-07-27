@@ -66,5 +66,8 @@
     "node",
     "jest",
     "@testing-library/jest-dom"
+  ],
+  "files": [
+      "declarations.d.ts"
   ]
 }
