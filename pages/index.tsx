@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 
-import Page from "@/components/page";
+import AnimatedPage from "@/components/page";
 
 const Home: NextPage = () => {
-    return <Page title="Home"></Page>;
+    return <AnimatedPage title="Home"></AnimatedPage>;
 };
 
 export default Home;
