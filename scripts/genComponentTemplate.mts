@@ -9,11 +9,13 @@ import { ${name}Props } from './types';
 // Project imports
 
 
-export const ${name} = ({}: ${name}Props) => {
+const ${name} = ({}: ${name}Props) => {
   return (<></>);
 };
 
 ${name}.defaultProps = {};
+
+export default ${name};
 `;
 
 // types.ts
