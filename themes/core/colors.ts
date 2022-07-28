@@ -5,7 +5,7 @@ const colors = {
         accent: "#F3BEBE",
     },
     text: {
-        primary: "#2F2F2F",
+        primary: "#000000",
     },
 };
 

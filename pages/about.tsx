@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 
-import Page from "@/components/page";
+import Page, { AnimatedPage } from "@/components/page";
 
 const About: NextPage = () => {
-    return <Page title="About"></Page>;
+    return <AnimatedPage title="About"></AnimatedPage>;
 };
 
 export default About;
