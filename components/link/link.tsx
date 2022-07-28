@@ -1,7 +1,12 @@
+// External imports
 import { useRouter } from "next/router";
+
+// Component imports
+import { LinkProps } from "./types";
+
+// Project imports
 import Anchor from "../anchor/anchor";
 import TextButton from "../textButton/textButton";
-import { LinkProps } from "./types";
 
 const Link = (props: LinkProps) => {
     const router = useRouter();

@@ -1,3 +1,4 @@
+// External imports
 import {
     InputGroup,
     Icon,
@@ -7,7 +8,11 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { BsExclamationCircle } from "react-icons/bs";
+
+// Component imports
 import { FormInputProps } from "./types";
+
+// Project imports
 
 const FormInput = (props: FormInputProps & InputGroupProps) => {
     const { fieldName, formikProps, ...inputGroupProps } = props;

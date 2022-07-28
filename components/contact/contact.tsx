@@ -1,8 +1,12 @@
+// External imports
 import { Formik } from "formik";
+
+// Component imports
+import ContactData from "@/interfaces/contactData";
+
+// Project imports
 import FormikTextArea from "@/components/formikTextArea";
 import FormikInput from "@/components/formikInput";
-
-import ContactData from "@/interfaces/contactData";
 
 const Contact = () => {
     const fontSize = { xs: "4vw", md: "max(1vw, 1rem)" };

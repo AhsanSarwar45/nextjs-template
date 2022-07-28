@@ -1,4 +1,9 @@
+// External imports
 import { VStack } from "@chakra-ui/react";
+
+// Component imports
+
+// Project imports
 
 const DesktopFooter = () => {
     return <VStack display={{ xs: "none", md: "block" }}></VStack>;

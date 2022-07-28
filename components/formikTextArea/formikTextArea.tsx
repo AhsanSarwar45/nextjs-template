@@ -1,6 +1,11 @@
+// External imports
 import { Textarea } from "@chakra-ui/react";
 import FormInput from "@/components/formInput";
+
+// Component imports
 import { FormikTextAreaProps } from "./types";
+
+// Project imports
 
 const FormikTextArea = (props: FormikTextAreaProps) => {
     return (

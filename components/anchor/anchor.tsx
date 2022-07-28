@@ -1,6 +1,11 @@
+//External imports
 import React from "react";
 import NextLink from "next/link";
+
+// Component imports
 import { AnchorProps } from "./types";
+
+// Project imports
 
 const Anchor = (props: AnchorProps) => {
     // If link is external, we want to open it in new tab by using

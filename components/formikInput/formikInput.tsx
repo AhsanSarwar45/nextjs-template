@@ -1,6 +1,11 @@
+// External imports
 import { Input } from "@chakra-ui/react";
-import FormInput from "@/components/formInput";
+
+// Component imports
 import { FormikInputProps } from "./types";
+
+// Project imports
+import FormInput from "@/components/formInput";
 
 const FormikInput = (props: FormikInputProps) => {
     return (

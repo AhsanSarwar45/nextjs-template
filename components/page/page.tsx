@@ -1,9 +1,12 @@
+// External imports
 import { useBreakpoint, useBreakpointValue, VStack } from "@chakra-ui/react";
 import { motion, Variants } from "framer-motion";
 
+// Component imports
 import { animation } from "./animations";
 import { AnimatedPageProps, PageProps } from "./types";
 
+// Project imports
 import Footer from "@/components/footer";
 import Head from "@/components/head";
 import Nav, { CollapsibleNav } from "@/components/nav";
