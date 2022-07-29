@@ -12,7 +12,7 @@ A template built on the following stack:
 -   [SVGR](https://react-svgr.com/) for SVG
 -   [Sanity](https://www.sanity.io/) for content management (optional)
 
-# Table of Contents
+## Table of Contents
 
 1. [Components](#components)
     1. [Generate Components](#generate-components)
