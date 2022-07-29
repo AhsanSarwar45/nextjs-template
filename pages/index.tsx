@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 
 import AnimatedPage from "@/components/page";
 import Input from "@/components/input";
-import Contact from "scripts/contactTemplate/contact";
 
 const Home: NextPage = () => {
     return (
@@ -16,7 +15,6 @@ const Home: NextPage = () => {
                 error="Incorrect"
                 errorPosition="icon"
             />
-            <Contact />
         </AnimatedPage>
     );
 };
