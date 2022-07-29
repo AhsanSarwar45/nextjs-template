@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 
 import AnimatedPage from "@/components/page";
 import Input from "@/components/input";
-import Contact from "@/components/contact";
+import Contact from "scripts/contactTemplate/contact";
 
 const Home: NextPage = () => {
     return (

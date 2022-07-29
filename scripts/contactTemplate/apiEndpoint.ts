@@ -12,8 +12,8 @@ const sendEmail = (req: NextApiRequest, res: NextApiResponse) => {
         subject: `Message From ${req.body.name}`,
         text: req.body.message + " | Sent from: " + req.body.email,
         html: `
-        <div>${req.body.message}</div><p>Sent from:
-        ${req.body.email}</p>
+        <div>${req.body.message}</div>
+        <p>Sent from: ${req.body.email}</p>
         `,
 
         onError: (error: any) => {

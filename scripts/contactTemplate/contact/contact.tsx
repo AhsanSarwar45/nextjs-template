@@ -1,11 +1,13 @@
 // External imports
-import { Formik } from "formik";
+import { Formik, FormikHelpers, FormikProps } from "formik";
 
 // Component imports
 import ContactData from "@/interfaces/contactData";
 
 // Project imports
 import FormikInput, { FormikTextArea } from "@/components/formikInput";
+import { handleFormikSubmit } from "@/utility/formik";
+import { Button } from "@chakra-ui/react";
 
 const Contact = () => {
     const fontSize = { xs: "4vw", md: "max(1vw, 1rem)" };
@@ -29,36 +31,18 @@ const Contact = () => {
         return errors;
     };
 
-    const handleSubmit = (data: ContactData, formikProps: any) => {
-        console.log("[Contact] Sending");
-        fetch("/api/contact", {
-            method: "POST",
-            headers: {
-                Accept: "application/json, text/plain, */*",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })
-            .then((res) => {
-                console.log("[Contact] Response received");
-                if (res.status === 200) {
-                    console.log("Response succeeded!");
-                    formikProps.setSubmitting(false);
-                    formikProps.resetForm();
-                }
-            })
-            .catch((err) => {
-                console.log("Response failed!");
-                console.log(err);
-                formikProps.setSubmitting(false);
-            });
-    };
-
     return (
         <Formik
             initialValues={{ name: "", email: "", message: "" }}
             validate={validate}
-            onSubmit={handleSubmit}
+            onSubmit={(data, helpers) =>
+                handleFormikSubmit<ContactData>(
+                    "/api/contact",
+                    data,
+                    helpers,
+                    (res) => console.log(res.status)
+                )
+            }
         >
             {(formikProps) => (
                 <>
@@ -78,6 +62,14 @@ const Contact = () => {
                         formikProps={formikProps}
                         height="10rem"
                     />
+                    <Button
+                        isLoading={formikProps.isSubmitting}
+                        onClick={() => {
+                            formikProps.handleSubmit();
+                        }}
+                    >
+                        Submit
+                    </Button>
                 </>
             )}
         </Formik>
