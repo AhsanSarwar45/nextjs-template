@@ -6,7 +6,7 @@ import Page, { AnimatedPage } from "@/components/page";
 
 const Custom500 = () => {
     return (
-        <AnimatedPage title="Page not found">
+        <AnimatedPage title="Server-side error">
             <Flex height="100vh" alignItems="center">
                 <Heading>500 - Server-side error occurred</Heading>
             </Flex>
