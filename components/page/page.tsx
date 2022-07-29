@@ -1,5 +1,10 @@
 // External imports
-import { useBreakpoint, useBreakpointValue, VStack } from "@chakra-ui/react";
+import {
+    useBreakpoint,
+    useBreakpointValue,
+    VStack,
+    Image,
+} from "@chakra-ui/react";
 import { motion, Variants } from "framer-motion";
 
 // Component imports
@@ -20,7 +25,12 @@ const Page = (props: PageProps) => {
 
     return (
         <VStack>
-            <Head title={props.title} />
+            <Head
+                title={props.title}
+                description={props.description}
+                imageUrl={props.imageUrl}
+                robots={props.robots}
+            />
             {isSmallScreen ? <CollapsibleNav /> : <Nav />}
             <main>{props.children}</main>
             <Footer />
@@ -30,6 +40,9 @@ const Page = (props: PageProps) => {
 
 Page.defaultProps = {
     title: "",
+    description: "",
+    imageUrl: "",
+    robots: "",
 };
 
 export const AnimatedPage = (props: AnimatedPageProps) => {
@@ -50,7 +63,7 @@ export const AnimatedPage = (props: AnimatedPageProps) => {
 
 AnimatedPage.defaultProps = {
     animationVariants: animation,
-    title: "",  
+    title: "",
 };
 
 export default Page;

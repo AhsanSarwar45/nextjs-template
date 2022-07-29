@@ -9,6 +9,9 @@ export interface PageAnimation {
 
 export interface PageProps extends FlexProps {
     title: string;
+    description: string;
+    imageUrl: string;
+    robots: string;
 }
 export interface AnimatedPageProps extends PageProps {
     animationVariants: PageAnimation;
