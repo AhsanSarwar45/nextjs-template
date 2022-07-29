@@ -17,6 +17,7 @@ A template built on the following stack:
 1. [Components](#components)
     1. [Generate Components](#generate-components)
     1. [Page](#page)
+    1. [Nav](#nav)
 1. [Theming](#theming)
 1. [CMS](#cms)
 1. [Testing](#testing)
@@ -45,7 +46,7 @@ npm run gen-component ComponentName
 
 ### Page
 
-A utility component that contains a Head, a Navbar and a Footer.
+A utility component that contains a Head, a [Navbar](#nav) and a Footer.
 
 ```ts
 <Page title="About">
@@ -76,6 +77,34 @@ It has a fade animation by default. The animations are powered by [Framer Motion
     <p>Page content</p>
 </AnimatedPage>
 ```
+
+### Nav
+
+A simple nav component with a logo and links.
+
+```ts
+<Nav />
+```
+
+A collapsible, full-screen nav for mobile devices is also available:
+
+```ts
+<CollapsibleNav />
+```
+
+To switch to the collapsible navbar on mobile (this has already been done by default in the template)
+
+```ts
+const isSmallScreen = useBreakpointValue({
+    base: true,
+    xs: true,
+    md: false,
+});
+
+return isSmallScreen ? <CollapsibleNav /> : <Nav />;
+```
+
+You can edit the breakpoints in `theme/core/breakpoints.ts`
 
 ## Theming
 
