@@ -1,15 +1,15 @@
 import type { NextPage } from "next";
 
 import AnimatedPage from "@/components/page";
-import Input from "@/components/input";
+import FormInput from "@/components/formInput";
 
 const Home: NextPage = () => {
     return (
         <AnimatedPage title="Home" height="100vh" justifyContent="center">
-            <Input label="Name" labelPosition="placeholder" />
-            <Input label="Email" placeholder="example@site.com" />
-            <Input label="Age" isInvalid error="Incorrect" />
-            <Input
+            <FormInput label="Name" labelPosition="placeholder" />
+            <FormInput label="Email" placeholder="example@site.com" />
+            <FormInput label="Age" isInvalid error="Incorrect" />
+            <FormInput
                 label="Country"
                 isInvalid
                 error="Incorrect"

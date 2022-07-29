@@ -14,6 +14,10 @@ fs.copyFileSync(
     `./scripts/contactTemplate/apiEndpoint.ts`,
     "./pages/api/contact.ts"
 );
+fs.copyFileSync(
+    `./scripts/contactTemplate/contactData.ts`,
+    "./interfaces/contactData.ts"
+);
 fse.copySync(`./scripts/contactTemplate/contact`, "./components/contact");
 
 console.log(`Contact template added successfully! 🎉`);

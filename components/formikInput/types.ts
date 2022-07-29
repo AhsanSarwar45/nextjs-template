@@ -1,9 +1,8 @@
 import { InputProps, TextareaProps } from "@chakra-ui/react";
+import FormInput, { FormProps } from "../formInput";
 
-interface FormikBaseInputProps {
-    label?: string;
+export interface FormikBaseInputProps extends FormProps {
     fieldName: string;
-    formikProps: any;
 }
 
 export interface FormikInputProps extends FormikBaseInputProps, InputProps {}

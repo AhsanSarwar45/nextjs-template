@@ -14,11 +14,11 @@ import React, { useState } from "react";
 import { BsExclamationCircle } from "react-icons/bs";
 
 // Component imports
-import { TextAreaProps, InputBaseProps, InputProps } from "./types";
+import { FormTextAreaProps, FormInputBaseProps, FormInputProps } from "./types";
 
 // Project imports
 
-const InputBase = (props: InputBaseProps) => {
+const FormInputBase = (props: FormInputBaseProps) => {
     const [isErrorOpen, setIsErrorOpen] = useState(false);
 
     const Field = props.field;
@@ -70,11 +70,11 @@ const InputBase = (props: InputBaseProps) => {
     );
 };
 
-const Input = (props: InputProps) => {
+const FormInput = (props: FormInputProps) => {
     const { label, labelPosition, error, errorPosition, ...inputProps } = props;
 
     return (
-        <InputBase
+        <FormInputBase
             field={ChakraInput}
             fieldProps={inputProps}
             isBaseValid={props.isInvalid}
@@ -86,11 +86,11 @@ const Input = (props: InputProps) => {
     );
 };
 
-export const TextArea = (props: TextAreaProps) => {
+export const FormTextArea = (props: FormTextAreaProps) => {
     const { label, labelPosition, error, errorPosition, ...inputProps } = props;
 
     return (
-        <InputBase
+        <FormInputBase
             field={Textarea}
             fieldProps={inputProps}
             isBaseValid={props.isInvalid}
@@ -108,7 +108,7 @@ const defaultProps = {
     error: "",
 };
 
-Input.defaultProps = defaultProps;
-TextArea.defaultProps = defaultProps;
+FormInput.defaultProps = defaultProps;
+FormTextArea.defaultProps = defaultProps;
 
-export default Input;
+export default FormInput;

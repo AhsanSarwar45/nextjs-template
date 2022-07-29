@@ -8,12 +8,14 @@
     "start": "next start",
     "lint": "next lint",
     "e2e": "npx cypress open",
+    "cms": "cd cms && sanity start",
     "gen:theme-typings": "chakra-cli tokens themes/theme.ts",
     "postinstall": "npm run gen:theme-typings",
     "tsnode": "node --loader ts-node/esm --no-warnings",
     "gen-component": "npm run tsnode ./scripts/genComponentScript.mts",
     "init-cms": "npm run tsnode ./scripts/initSanityCmsScript.mts",
-    "add-contact": "npm run tsnode ./scripts/addContactScript.mts"
+    "add-contact": "npm run tsnode ./scripts/addContactScript.mts",
+    "remove-contact": "npm run tsnode ./scripts/removeContactScript.mts"
   },
   "dependencies": {
     "@chakra-ui/cli": "^2.1.2",

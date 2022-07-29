@@ -40,12 +40,14 @@ const Page = (props: PageProps) => {
     );
 };
 
-Page.defaultProps = {
+const pageDefaultProps = {
     title: "",
     description: "",
     imageUrl: "",
     robots: "",
 };
+
+Page.defaultProps = pageDefaultProps;
 
 export const AnimatedPage = (props: AnimatedPageProps) => {
     const { animationVariants, ...pageProps } = props;
@@ -65,7 +67,7 @@ export const AnimatedPage = (props: AnimatedPageProps) => {
 
 AnimatedPage.defaultProps = {
     animationVariants: animation,
-    title: "",
+    ...pageDefaultProps,
 };
 
 export default Page;
