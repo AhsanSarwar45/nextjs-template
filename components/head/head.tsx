@@ -7,10 +7,16 @@ import { useRouter } from "next/router";
 import { HeaderProps } from "./types";
 
 const Head = (props: HeaderProps) => {
-    const router = useRouter();
-    const url = router.asPath;
-    const title = props.title || router.pathname.toUpperCase();
     const twitterUsername = "";
+    const baseUrl = "localhost:3000";
+
+    const router = useRouter();
+
+    const url = baseUrl + router.pathname;
+    const urlPageName = router.pathname
+        .substring(router.pathname.indexOf("/") + 1)
+        .toUpperCase();
+    const title = props.title || urlPageName;
 
     return (
         <NextHead>
