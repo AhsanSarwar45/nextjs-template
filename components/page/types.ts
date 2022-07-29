@@ -1,4 +1,4 @@
-import { FlexProps } from "@chakra-ui/react";
+import { FlexProps, StackProps } from "@chakra-ui/react";
 import { Variant, Variants } from "framer-motion";
 
 export interface PageAnimation {
@@ -7,7 +7,7 @@ export interface PageAnimation {
     exit: Variant;
 }
 
-export interface PageProps extends FlexProps {
+export interface PageProps extends StackProps {
     title: string;
 }
 export interface AnimatedPageProps extends PageProps {

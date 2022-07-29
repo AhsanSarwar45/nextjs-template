@@ -9,7 +9,7 @@ import { ${name}Props } from './types';
 // Project imports
 
 
-const ${name} = ({}: ${name}Props) => {
+const ${name} = (props: ${name}Props) => {
   return (<></>);
 };
 

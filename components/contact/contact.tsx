@@ -5,8 +5,7 @@ import { Formik } from "formik";
 import ContactData from "@/interfaces/contactData";
 
 // Project imports
-import FormikTextArea from "@/components/formikTextArea";
-import FormikInput from "@/components/formikInput";
+import FormikInput, { FormikTextArea } from "@/components/formikInput";
 
 const Contact = () => {
     const fontSize = { xs: "4vw", md: "max(1vw, 1rem)" };
@@ -23,12 +22,11 @@ const Contact = () => {
         ) {
             errors.email = "Invalid email address";
         }
-        {
-            if (!values.message) {
-                errors.message = "Required";
-            }
-            return errors;
+
+        if (!values.message) {
+            errors.message = "Required";
         }
+        return errors;
     };
 
     const handleSubmit = (data: ContactData, formikProps: any) => {
@@ -66,20 +64,19 @@ const Contact = () => {
                 <>
                     <FormikInput
                         fontSize={fontSize}
-                        name="name"
+                        fieldName="name"
                         formikProps={formikProps}
                     />
                     <FormikInput
                         fontSize={fontSize}
-                        name="email"
+                        fieldName="email"
                         formikProps={formikProps}
                     />
-
                     <FormikTextArea
                         fontSize={fontSize}
-                        name="message"
+                        fieldName="message"
                         formikProps={formikProps}
-                        height="60%"
+                        height="10rem"
                     />
                 </>
             )}

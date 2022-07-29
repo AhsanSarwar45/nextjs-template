@@ -12,6 +12,8 @@ import Head from "@/components/head";
 import Nav, { CollapsibleNav } from "@/components/nav";
 
 const Page = (props: PageProps) => {
+    const { title, ...stackProps } = props;
+
     const isSmallScreen = useBreakpointValue({
         base: true,
         xs: true,
@@ -19,8 +21,8 @@ const Page = (props: PageProps) => {
     });
 
     return (
-        <VStack>
-            <Head title={props.title} />
+        <VStack spacing={0} {...stackProps}>
+            <Head title={title} />
             {isSmallScreen ? <CollapsibleNav /> : <Nav />}
             <main>{props.children}</main>
             <Footer />
