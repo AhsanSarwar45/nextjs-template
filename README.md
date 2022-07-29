@@ -30,10 +30,11 @@ The component files follow the following conventions (all files and directories 
 
 ```
 📁 folderName
+    📄 componentName.ts # implementation
     📄 index.js # to export components and types
     📄 types.ts # for types and interfaces
     📄 animations.ts # for animations
-    📄 componentName.ts # implementation
+    📄 # other files as required...
 ```
 
 ## Generate Components
@@ -48,7 +49,7 @@ npm run gen-component ComponentName
 
 A utility component that contains a Head, a [Navbar](#nav) and a Footer.
 
-```ts
+```tsx
 <Page title="About">
     <p>Page content</p>
 </Page>
@@ -56,7 +57,7 @@ A utility component that contains a Head, a [Navbar](#nav) and a Footer.
 
 An animated variant is also available:
 
-```ts
+```tsx
 <AnimatedPage title="About">
     <p>Page content</p>
 </AnimatedPage>
@@ -64,15 +65,15 @@ An animated variant is also available:
 
 It has a fade animation by default. The animations are powered by [Framer Motion](https://framer.com/motion/). You can specify your own animation using the `animationVariants` prop.
 
-```ts
+```tsx
 <AnimatedPage
     title="About"
-    animationVariants=
+    animationVariants={
     {
         enter: { opacity: 0 },
         exit: { opacity: 0 },
         animate: { opacity: 1 },
-    }
+    }}
 >
     <p>Page content</p>
 </AnimatedPage>
@@ -82,19 +83,19 @@ It has a fade animation by default. The animations are powered by [Framer Motion
 
 A simple nav component with a logo and links.
 
-```ts
+```tsx
 <Nav />
 ```
 
 A collapsible, full-screen nav for mobile devices is also available:
 
-```ts
+```tsx
 <CollapsibleNav />
 ```
 
 To switch to the collapsible navbar on mobile (this has already been done by default in the template)
 
-```ts
+```tsx
 const isSmallScreen = useBreakpointValue({
     base: true,
     xs: true,
@@ -112,15 +113,15 @@ The project already has Chakra's [recommended](https://chakra-ui.com/docs/styled
 
 ```
 📁 theme
-    📄 index.js  # Theme entrypoint
-    📄 styles.js  # Global style overrides
+    📄 index.js  # theme entrypoint
+    📄 styles.js  # global style overrides
     📁 core
-        📄 borders.js  # Border overrides
-        📄 colors.js  # Color overrides
+        📄 borders.js  # border overrides
+        📄 colors.js  # color overrides
         📄 # and so on...
     📁 components
-        📄 button.js  # Button overrides
-        📄 input.js  # Input overrides
+        📄 button.js  # button overrides
+        📄 input.js  # input overrides
         📄 # and so on...
 ```
 
