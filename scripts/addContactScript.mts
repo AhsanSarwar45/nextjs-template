@@ -11,13 +11,13 @@ if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
 }
 fs.copyFileSync(
-    `./scripts/contactTemplate/apiEndpoint.ts`,
+    "./scripts/contactTemplate/apiEndpoint.ts",
     "./pages/api/contact.ts"
 );
 fs.copyFileSync(
-    `./scripts/contactTemplate/contactData.ts`,
+    "./scripts/contactTemplate/contactData.ts",
     "./interfaces/contactData.ts"
 );
-fse.copySync(`./scripts/contactTemplate/contact`, "./components/contact");
+fse.copySync("./scripts/contactTemplate/contact", "./components/contact");
 
 console.log(`Contact template added successfully! 🎉`);

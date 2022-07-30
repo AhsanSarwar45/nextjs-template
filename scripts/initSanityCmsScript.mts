@@ -30,6 +30,10 @@ const projectId = JSON.parse(
 ).api.projectId;
 fs.writeFileSync(`${dir}/config.ts`, config(projectId));
 execSync("npx sanity-codegen", options);
+fs.copyFileSync(
+    "./scripts/sanityTemplate/deploy-cms.yml",
+    "./.github/workflows/deploy-cms.yml"
+);
 
 console.log(`Sanity CMS has been initialized successfully! 🎉`);
 console.log(`Type 'npm run cms' to start the Studio.`);

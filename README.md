@@ -41,6 +41,7 @@ npm run dev
 1. [Animations](#animations)
 1. [SVG](#svg)
 1. [Icons](#icons)
+1. [CI](#ci)
 
 ## Components
 
@@ -233,7 +234,7 @@ A basic footer with a logo, socials and a copyright message. It is already inclu
 
 ### TextButton
 
-A clickable plain text button with an underline animation.
+A clickable plain text button with an underline animation on hover.
 
 ```tsx
 <TextButton label="Click Me" onClick={()=>{...}}>
@@ -416,3 +417,9 @@ import { Icon } from "chakra/react"
     color="brand.primary"
 />
 ```
+
+## CI
+
+[Github Actions](https://docs.github.com/en/actions/get-started) is used for CI. A `run-cypress-tests.yml` file is included in `.github/workflows/` that runs cypress tests on each push.
+
+Another workflow file is added when you run `npm run init-cms` in `.github/workflows/deploy-cms.yml` that deploys the cms on each push. You can customize it to your needs.
