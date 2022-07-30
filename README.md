@@ -47,7 +47,7 @@ npm run gen-component ComponentName
 
 ### Page
 
-A utility component that contains a Head, a [Navbar](#nav) and a Footer.
+A utility component that contains a Head, a [`Nav`](#nav) and a Footer.
 
 ```tsx
 <Page title="About">
@@ -107,6 +107,47 @@ return isSmallScreen ? <CollapsibleNav /> : <Nav />;
 
 You can edit the breakpoints in `theme/core/breakpoints.ts`
 
+### FormInput
+A wrapper around the Chakra `Input` component. It adds a label, an error message as well as options to change label and error styles.
+#### Props
+-   `label`: The label text
+-   `error`: The error message
+-   `labelPosition`: Either `top` or `placeholder`
+-   `errorPosition`: Either `bottom` or `icon`
+
+```tsx
+<FormInput label="Name" isInvalid error="This field is required" />
+```
+### FormikInput
+A wrapper around the [`FormInput`](#forminput) component that uses the [Formik](https://jaredpalmer.com/formik/) library.
+
+#### Props
+-   `fieldName`: The name of the field in the formik state
+-   `label`: An optional label
+
+```tsx
+<Formik
+    initialValues={{ name: "", password: "", confirmPassword: "" }}
+    ...
+>
+    {() => (
+        <FormikInput name="name"/>
+        <FormikInput name="password"/>
+        <FormikInput name="confirmPassword" label="Confirm Password"/>
+    )}
+</Formik>
+```
+### Contact (optional)
+If you quickly need a contact form, you can bootstrap a contact component with:
+```bash
+npm run add-contact
+```
+This adds
+- `nodejs-nodemailer-outlook` to send email
+- A `Contact` component in `/components` that contains some basic fields using Formik
+- A `contact` api endpoint in `/api` that sends the email
+- A `ContactData` interface in `/interfaces` that defines the contact data
+
 ## Theming
 
 The project already has Chakra's [recommended](https://chakra-ui.com/docs/styled-system/customize-theme#scaling-out-your-project) theme directory structure set up.
@@ -126,7 +167,7 @@ The project already has Chakra's [recommended](https://chakra-ui.com/docs/styled
 ```
 
 Check out the Chakra [docs](https://chakra-ui.com/docs/styled-system/customize-theme) on how to customize the theme.
-Theme typings have already been set up.
+Theme typings have also already been set up.
 
 ## CMS
 
@@ -139,29 +180,26 @@ npm run init-cms
 It sets up the Sanity studio inside the `cms` directory. It also sets up types generation for your schema. You can update the types like so:
 
 ```bash
+cd cms
 npx sanity-codegen
 ```
 
 To start the studio:
 
 ```bash
-sanity start
+npm run cms
 ```
 
 To use the client:
 
 ```ts
 import sanity from "@/cms/sanityClient";
-export const getStaticProps = async () => {
-    // `posts` is a schema
-    const posts = await sanity.getAll("posts");
-    return {
-        props: {
-            galleryImages,
-        },
-    };
-};
+
+// `posts` is a schema
+const posts = await sanity.getAll("posts");
 ```
+
+The default client is a [sanity-codegen](https://www.sanity.io/plugins/sanity-codegen) client that allows us to use typescript for our schemas. You can use any other client you want like [next-sanity](https://github.com/sanity-io/next-sanity).
 
 ## Testing
 

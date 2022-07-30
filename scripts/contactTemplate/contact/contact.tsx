@@ -2,7 +2,7 @@
 import { Formik, FormikHelpers, FormikProps } from "formik";
 
 // Component imports
-import ContactData from "@/interfaces/contactData";
+import ContactData from "scripts/contactTemplate/contactData";
 
 // Project imports
 import FormikInput, { FormikTextArea } from "@/components/formikInput";
@@ -46,20 +46,11 @@ const Contact = () => {
         >
             {(formikProps) => (
                 <>
-                    <FormikInput
-                        fontSize={fontSize}
-                        fieldName="name"
-                        formikProps={formikProps}
-                    />
-                    <FormikInput
-                        fontSize={fontSize}
-                        fieldName="email"
-                        formikProps={formikProps}
-                    />
+                    <FormikInput fontSize={fontSize} fieldName="name" />
+                    <FormikInput fontSize={fontSize} fieldName="email" />
                     <FormikTextArea
                         fontSize={fontSize}
                         fieldName="message"
-                        formikProps={formikProps}
                         height="10rem"
                     />
                     <Button

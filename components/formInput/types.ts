@@ -3,19 +3,19 @@ import {
     TextareaProps as ChakraTextareaProps,
 } from "@chakra-ui/react";
 
-interface InputFormProps {
+export interface FormProps {
     label: string;
     labelPosition: "top" | "placeholder";
-    error: string;
+    error?: string;
     errorPosition: "icon" | "bottom";
 }
 
-export interface InputBaseProps extends InputFormProps {
+export interface FormInputBaseProps extends FormProps {
     isBaseValid: boolean | undefined;
     field: React.ComponentType;
     fieldProps: ChakraInputProps | ChakraTextareaProps;
 }
 
-export interface TextAreaProps extends ChakraTextareaProps, InputFormProps {}
+export interface FormTextAreaProps extends ChakraTextareaProps, FormProps {}
 
-export interface InputProps extends ChakraInputProps, InputFormProps {}
+export interface FormInputProps extends ChakraInputProps, FormProps {}
