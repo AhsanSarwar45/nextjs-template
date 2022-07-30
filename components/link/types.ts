@@ -1,7 +1,7 @@
-export interface LinkProps {
+import { TextProps } from "@chakra-ui/react";
+
+export interface LinkProps extends TextProps {
     href: string;
     label: string;
-    color: string;
-    fontSize: any;
     isExternal: boolean;
 }

@@ -1,20 +1,14 @@
+// External imports
 import type { NextPage } from "next";
 
-import AnimatedPage from "@/components/page";
-import FormInput from "@/components/formInput";
+// Project imports
+import { AnimatedPage } from "@/components/page";
+import { Flex } from "@chakra-ui/react";
 
 const Home: NextPage = () => {
     return (
-        <AnimatedPage title="Home" height="100vh" justifyContent="center">
-            <FormInput label="Name" labelPosition="placeholder" />
-            <FormInput label="Email" placeholder="example@site.com" />
-            <FormInput label="Age" isInvalid error="Incorrect" />
-            <FormInput
-                label="Country"
-                isInvalid
-                error="Incorrect"
-                errorPosition="icon"
-            />
+        <AnimatedPage title="Home">
+            {/* <Flex height="80vh" width="full" bg="gray.100" /> */}
         </AnimatedPage>
     );
 };

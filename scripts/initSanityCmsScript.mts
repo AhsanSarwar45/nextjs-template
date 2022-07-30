@@ -12,15 +12,17 @@ if (fs.existsSync(dir)) {
 fs.mkdirSync(dir);
 
 const options = { stdio: [0, 1, 2], cwd: dir };
+const rootOptions = { stdio: [0, 1, 2] };
 
 execSync("npm i -g @sanity/cli", options);
 execSync(
-    `sanity init --provider github --dataset production --output-path ${dir}`,
-    options
+    `sanity init --provider github --dataset production --output-path "${dir}"`,
+    rootOptions
 );
-execSync("npm i --save-dev sanity-codegen prettier @sanity/image-url", {
-    stdio: [0, 1, 2],
-});
+execSync(
+    "npm i --save-dev sanity-codegen prettier @sanity/image-url",
+    rootOptions
+);
 fs.writeFileSync(`${dir}/sanity-codegen.config.ts`, codegenConfig);
 fs.writeFileSync(`${dir}/sanityClient.ts`, client);
 const projectId = JSON.parse(

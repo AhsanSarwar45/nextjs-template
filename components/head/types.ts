@@ -3,5 +3,4 @@ export interface HeaderProps {
     description: string;
     imageUrl: string;
     robots: string;
-    // host?: string;
 }

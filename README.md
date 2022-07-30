@@ -18,6 +18,14 @@ A template built on the following stack:
     1. [Generate Components](#generate-components)
     1. [Page](#page)
     1. [Nav](#nav)
+    1. [FormInput](#forminput)
+    1. [FormikInput](#formikinput)
+    1. [Anchor](#anchor)
+    1. [Head](#head)
+    1. [Footer](#footer)
+    1. [TextButton](#textbutton)
+    1. [Link](#link)
+    1. [Contact](#contact-optional) (optional)
 1. [Theming](#theming)
 1. [CMS](#cms)
 1. [Testing](#testing)
@@ -47,7 +55,7 @@ npm run gen-component ComponentName
 
 ### Page
 
-A utility component that contains a Head, a [`Nav`](#nav) and a Footer.
+A utility component that contains a [`Head`](#head), a [`Nav`](#nav) and a Footer.
 
 ```tsx
 <Page title="About">
@@ -55,7 +63,7 @@ A utility component that contains a Head, a [`Nav`](#nav) and a Footer.
 </Page>
 ```
 
-An animated variant is also available:
+An animated variant with enter and exit animations is also available:
 
 ```tsx
 <AnimatedPage title="About">
@@ -68,8 +76,7 @@ It has a fade animation by default. The animations are powered by [Framer Motion
 ```tsx
 <AnimatedPage
     title="About"
-    animationVariants={
-    {
+    animationVariants={{
         enter: { opacity: 0 },
         exit: { opacity: 0 },
         animate: { opacity: 1 },
@@ -108,22 +115,28 @@ return isSmallScreen ? <CollapsibleNav /> : <Nav />;
 You can edit the breakpoints in `theme/core/breakpoints.ts`
 
 ### FormInput
+
 A wrapper around the Chakra `Input` component. It adds a label, an error message as well as options to change label and error styles.
+
 #### Props
--   `label`: The label text
--   `error`: The error message
--   `labelPosition`: Either `top` or `placeholder`
--   `errorPosition`: Either `bottom` or `icon`
+
+-   `label: string`: The label text
+-   `error: string`: The error message
+-   `labelPosition : 'top' | 'placeholder'`: `top` is the conventional label position above the input, `placeholder` puts the label as a placeholder inside the input.
+-   `errorPosition : 'bottom' | 'icon'`: `bottom` puts the error message below the input, `icon` puts the error message inside the input as an icon.
 
 ```tsx
 <FormInput label="Name" isInvalid error="This field is required" />
 ```
+
 ### FormikInput
+
 A wrapper around the [`FormInput`](#forminput) component that uses the [Formik](https://jaredpalmer.com/formik/) library.
 
 #### Props
--   `fieldName`: The name of the field in the formik state
--   `label`: An optional label
+
+-   `fieldName: string`: The name of the field in the formik state
+-   `label: string`: An optional label. If not provided, the `fieldName` is used as the label (capitalized)
 
 ```tsx
 <Formik
@@ -137,16 +150,73 @@ A wrapper around the [`FormInput`](#forminput) component that uses the [Formik](
     )}
 </Formik>
 ```
+
+### Anchor
+
+A wrapper around [`NextLink`](https://nextjs.org/docs/api-reference/next/link) and `a`.
+
+#### Props
+
+-   `href: string`: The URL to link to
+-   `isExternal: boolean`: Whether the link is external or not. External links are opened in new tabs.
+
+```tsx
+<Anchor href="https://www.google.com" isExternal>
+    ...
+</Anchor>
+```
+
+### Head
+
+A wrapper around [`NextHead`](https://nextjs.org/docs/api-reference/next/head). Adds a title as well as common meta tags such as `robots`, `og`, `twitter`. Customize it to your needs. It is already included in the [`Page`](#page) component.
+
+```tsx
+<Head
+    title="About"
+    description="This is my about page"
+    imageUrl="/public/img.png"
+    robots="noimageindex"
+/>
+```
+
+### Footer
+
+A basic footer with a logo, socials and a copyright message. It is already included in the [`Page`](#page) component.
+
+```tsx
+<Footer />
+```
+
+### TextButton
+
+A clickable plain text button with an underline animation.
+
+```tsx
+<TextButton label="Click Me" onClick={()=>{...}}>
+```
+
+### Link
+
+A wrapper around [`Anchor`](#anchor) and [`TextButton`](#textbutton). If the current page is the same as the link, the link is underlined.
+
+```tsx
+<Link label="About" href="/about">
+```
+
 ### Contact (optional)
+
 If you quickly need a contact form, you can bootstrap a contact component with:
+
 ```bash
 npm run add-contact
 ```
+
 This adds
-- `nodejs-nodemailer-outlook` to send email
-- A `Contact` component in `/components` that contains some basic fields using Formik
-- A `contact` api endpoint in `/api` that sends the email
-- A `ContactData` interface in `/interfaces` that defines the contact data
+
+-   `nodejs-nodemailer-outlook` to send email
+-   A `Contact` component in `/components` that contains some basic fields using Formik
+-   A `contact` api endpoint in `/api` that sends the email
+-   A `ContactData` interface in `/interfaces` that defines the contact data
 
 ## Theming
 

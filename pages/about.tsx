@@ -1,9 +1,16 @@
+// External imports
 import type { NextPage } from "next";
 
-import Page, { AnimatedPage } from "@/components/page";
+// Project imports
+import { AnimatedPage } from "@/components/page";
+import { Flex } from "@chakra-ui/react";
 
 const About: NextPage = () => {
-    return <AnimatedPage title="About"></AnimatedPage>;
+    return (
+        <AnimatedPage title="About">
+            {/* <Flex height="80vh" width="full" bg="red.100" /> */}
+        </AnimatedPage>
+    );
 };
 
 export default About;

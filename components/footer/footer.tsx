@@ -1,23 +1,29 @@
 // External imports
-import { VStack } from "@chakra-ui/react";
+import { HStack, VStack, Text, Flex } from "@chakra-ui/react";
 
 // Component imports
 
 // Project imports
-
-const DesktopFooter = () => {
-    return <VStack display={{ xs: "none", md: "block" }}></VStack>;
-};
-
-const MobileFooter = () => {
-    return <VStack display={{ xs: "flex", md: "none" }}></VStack>;
-};
+import VercelLogo from "@/public/vercel.svg";
+import Socials from "@/components/socials";
 
 const Footer = () => {
     return (
         <footer>
-            <DesktopFooter />
-            <MobileFooter />
+            <Flex
+                direction={{ xs: "column", md: "row" }}
+                padding="1rem"
+                paddingX={{ xs: "1rem", md: "4rem" }}
+                width="full"
+                gap="1rem"
+                bgColor="brand.secondary"
+                alignItems="center"
+                justifyContent="space-between"
+            >
+                <VercelLogo width="6rem" />
+                <Text>© 2022 NextJs Template. All rights reserved</Text>
+                <Socials />
+            </Flex>
         </footer>
     );
 };

@@ -4,6 +4,7 @@ import {
     useBreakpointValue,
     VStack,
     Image,
+    Spacer,
 } from "@chakra-ui/react";
 import { motion, Variants } from "framer-motion";
 
@@ -26,7 +27,7 @@ const Page = (props: PageProps) => {
     });
 
     return (
-        <VStack spacing={0} {...stackProps}>
+        <VStack width="full" minHeight="100vh" spacing="0" {...stackProps}>
             <Head
                 title={props.title}
                 description={props.description}
@@ -35,6 +36,7 @@ const Page = (props: PageProps) => {
             />
             {isSmallScreen ? <CollapsibleNav /> : <Nav />}
             <main>{props.children}</main>
+            <Spacer />
             <Footer />
         </VStack>
     );
@@ -52,7 +54,19 @@ Page.defaultProps = pageDefaultProps;
 export const AnimatedPage = (props: AnimatedPageProps) => {
     const { animationVariants, ...pageProps } = props;
 
-    return (
+    return props.animateContentOnly ? (
+        <Page {...pageProps}>
+            <motion.main
+                key={props.title}
+                variants={props.animationVariants as any}
+                initial="initial"
+                animate="enter"
+                exit="exit"
+            >
+                {props.children}
+            </motion.main>
+        </Page>
+    ) : (
         <motion.main
             key={props.title}
             variants={props.animationVariants as any}
@@ -67,6 +81,7 @@ export const AnimatedPage = (props: AnimatedPageProps) => {
 
 AnimatedPage.defaultProps = {
     animationVariants: animation,
+    animateContentOnly: false,
     ...pageDefaultProps,
 };
 

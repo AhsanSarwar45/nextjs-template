@@ -15,4 +15,5 @@ export interface PageProps extends StackProps {
 }
 export interface AnimatedPageProps extends PageProps {
     animationVariants: PageAnimation;
+    animateContentOnly: boolean;
 }
