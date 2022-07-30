@@ -422,4 +422,4 @@ import { Icon } from "chakra/react"
 
 [Github Actions](https://docs.github.com/en/actions/get-started) is used for CI. A `run-cypress-tests.yml` file is included in `.github/workflows/` that runs cypress tests on each push.
 
-Another workflow file is added when you run `npm run init-cms` in `.github/workflows/deploy-cms.yml` that deploys the cms on each push. You can customize it to your needs.
+Another workflow file is added when you run `npm run init-cms` in `.github/workflows/deploy-cms.yml` that deploys the Sanity CMS on each push. You can customize it to your needs.
