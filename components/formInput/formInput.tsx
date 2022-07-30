@@ -33,8 +33,8 @@ const FormInputBase = (props: FormInputBaseProps) => {
                     <Tooltip
                         hasArrow
                         label={props.error}
-                        bgColor="brand.accent"
-                        color="text.primary"
+                        bgColor="error"
+                        color="white"
                         isOpen={isErrorOpen}
                     >
                         <InputRightElement
@@ -42,7 +42,7 @@ const FormInputBase = (props: FormInputBaseProps) => {
                             onMouseEnter={() => setIsErrorOpen(true)}
                             onMouseLeave={() => setIsErrorOpen(false)}
                             onClick={() => setIsErrorOpen(true)}
-                            color="red.300"
+                            color="error"
                         >
                             <Icon as={BsExclamationCircle} />
                         </InputRightElement>
@@ -64,7 +64,7 @@ const FormInputBase = (props: FormInputBaseProps) => {
                 />
             </InputGroup>
             {props.errorPosition === "bottom" && (
-                <FormErrorMessage>{props.error}</FormErrorMessage>
+                <FormErrorMessage color="error">{props.error}</FormErrorMessage>
             )}
         </FormControl>
     );
