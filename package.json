@@ -9,6 +9,7 @@
     "lint": "next lint",
     "e2e": "npx cypress open",
     "cms": "cd cms && sanity start",
+    "gen-sanity-types": "cd cms && npx sanity-codegen",
     "gen:theme-typings": "chakra-cli tokens themes/theme.ts",
     "postinstall": "npm run gen:theme-typings",
     "tsnode": "node --loader ts-node/esm --no-warnings",

@@ -1,4 +1,4 @@
-# Next JS Portfolio Template
+# Next JS Template
 
 A template built on the following stack:
 
@@ -12,11 +12,19 @@ A template built on the following stack:
 -   [SVGR](https://react-svgr.com/) for SVG
 -   [Sanity](https://www.sanity.io/) for content management (optional)
 
+To start:
+
+```bash
+npm install
+npm run dev
+```
+
 ## Table of Contents
 
 1. [Components](#components)
     1. [Generate Components](#generate-components)
     1. [Page](#page)
+    1. [AnimatedPage](#animatedpage)
     1. [Nav](#nav)
     1. [FormInput](#forminput)
     1. [FormikInput](#formikinput)
@@ -25,10 +33,14 @@ A template built on the following stack:
     1. [Footer](#footer)
     1. [TextButton](#textbutton)
     1. [Link](#link)
+    1. [Socials](#socials)
     1. [Contact](#contact-optional) (optional)
 1. [Theming](#theming)
 1. [CMS](#cms)
 1. [Testing](#testing)
+1. [Animations](#animations)
+1. [SVG](#svg)
+1. [Icons](#icons)
 
 ## Components
 
@@ -45,7 +57,7 @@ The component files follow the following conventions (all files and directories 
     📄 # other files as required...
 ```
 
-## Generate Components
+### Generate Components
 
 There is a script to generate components with all the required files. Use it like this:
 
@@ -55,13 +67,22 @@ npm run gen-component ComponentName
 
 ### Page
 
-A utility component that contains a [`Head`](#head), a [`Nav`](#nav) and a Footer.
+A utility component that contains a [`Head`](#head), a [`Nav`](#nav) and a [`Footer`](#footer).
 
 ```tsx
 <Page title="About">
     <p>Page content</p>
 </Page>
 ```
+
+#### Props
+
+-   `title: string`: The title of the page
+-   `description: string`: The description of the page to be used in meta tags
+-   `imageUrl: string`: The URL of the image to use in the meta tags
+-   `robots: string`: The robots meta tag value
+
+### AnimatedPage
 
 An animated variant with enter and exit animations is also available:
 
@@ -86,6 +107,11 @@ It has a fade animation by default. The animations are powered by [Framer Motion
 </AnimatedPage>
 ```
 
+#### Props
+
+-   `animationVariants: PageAnimation`: The animation variants to use for the page. Includes three [`Variant`](https://www.framer.com/docs/animation/#variants) objects: `enter`, `exit` and `animate`.
+-   `animateContentOnly: boolean`: Whether to animate the content only or the whole page (content + footer + nav).
+
 ### Nav
 
 A simple nav component with a logo and links.
@@ -100,7 +126,7 @@ A collapsible, full-screen nav for mobile devices is also available:
 <CollapsibleNav />
 ```
 
-To switch to the collapsible navbar on mobile (this has already been done by default in the template)
+To switch to the collapsible navbar on mobile (this has already been done by default in the template):
 
 ```tsx
 const isSmallScreen = useBreakpointValue({
@@ -116,7 +142,7 @@ You can edit the breakpoints in `theme/core/breakpoints.ts`
 
 ### FormInput
 
-A wrapper around the Chakra `Input` component. It adds a label, an error message as well as options to change label and error styles.
+A wrapper around the Chakra `Input` component. It adds a label, an error message as well as options to change label and error styles. There is also a `FormTextArea` component for text area input.
 
 #### Props
 
@@ -126,12 +152,22 @@ A wrapper around the Chakra `Input` component. It adds a label, an error message
 -   `errorPosition : 'bottom' | 'icon'`: `bottom` puts the error message below the input, `icon` puts the error message inside the input as an icon.
 
 ```tsx
-<FormInput label="Name" isInvalid error="This field is required" />
+const [value, setValue] = useState('')
+...
+return (
+    <FormInput
+        label="Name"
+        onChange={(event) => setValue(event.target.value)}
+        value={value}
+        isInvalid={value === ''}
+        error="This field is required" />
+    <FormTextArea label="Message" />
+)
 ```
 
 ### FormikInput
 
-A wrapper around the [`FormInput`](#forminput) component that uses the [Formik](https://jaredpalmer.com/formik/) library.
+A wrapper around the [`FormInput`](#forminput) component that uses the [Formik](https://jaredpalmer.com/formik/) library. There is also `FormikTextArea` for text area input.
 
 #### Props
 
@@ -147,6 +183,7 @@ A wrapper around the [`FormInput`](#forminput) component that uses the [Formik](
         <FormikInput name="name"/>
         <FormikInput name="password"/>
         <FormikInput name="confirmPassword" label="Confirm Password"/>
+        <FormikTextArea name="message"/>
     )}
 </Formik>
 ```
@@ -168,7 +205,7 @@ A wrapper around [`NextLink`](https://nextjs.org/docs/api-reference/next/link) a
 
 ### Head
 
-A wrapper around [`NextHead`](https://nextjs.org/docs/api-reference/next/head). Adds a title as well as common meta tags such as `robots`, `og`, `twitter`. Customize it to your needs. It is already included in the [`Page`](#page) component.
+A wrapper around [`NextHead`](https://nextjs.org/docs/api-reference/next/head). Adds a title as well as common meta tags such as `robots`, `og`, `twitter` etc. Customize it to your needs. It is already included in the [`Page`](#page) component.
 
 ```tsx
 <Head
@@ -178,6 +215,13 @@ A wrapper around [`NextHead`](https://nextjs.org/docs/api-reference/next/head). 
     robots="noimageindex"
 />
 ```
+
+#### Props
+
+-   `title: string`: The title of the page
+-   `description: string`: The description of the page to be used in meta tags
+-   `imageUrl: string`: The URL of the image to use in the meta tags
+-   `robots: string`: The robots meta tag value
 
 ### Footer
 
@@ -201,6 +245,14 @@ A wrapper around [`Anchor`](#anchor) and [`TextButton`](#textbutton). If the cur
 
 ```tsx
 <Link label="About" href="/about">
+```
+
+### Socials
+
+A stack of social icons. Customize the icons and hrefs to your needs.
+
+```tsx
+<Socials direction="column" spacing="1rem" />
 ```
 
 ### Contact (optional)
@@ -250,8 +302,7 @@ npm run init-cms
 It sets up the Sanity studio inside the `cms` directory. It also sets up types generation for your schema. You can update the types like so:
 
 ```bash
-cd cms
-npx sanity-codegen
+npm run gen-sanity-types
 ```
 
 To start the studio:
@@ -273,6 +324,7 @@ Example usage in getStaticProps:
 
 ```tsx
 import sanity from "@/cms/sanityClient";
+import { UnwrapPromise } from "@/types/unwrapPromise";
 
 export const getStaticProps = async () => {
     const posts = await sanity.getAll("posts");
@@ -284,7 +336,6 @@ export const getStaticProps = async () => {
 };
 
 // Get typings for the static props
-type UnwrapPromise<T> = T extends Promise<infer U> ? U : T;
 type Props = UnwrapPromise<ReturnType<typeof getStaticProps>>["props"];
 
 const Articles: NextPage<Props> = (props) => {
@@ -297,8 +348,6 @@ const Articles: NextPage<Props> = (props) => {
                     {post.body}
                 </Text>
             ))}
-
-
     )
 }
 ```
@@ -308,3 +357,62 @@ The default client is a [sanity-codegen](https://www.sanity.io/plugins/sanity-co
 ## Testing
 
 [Cypress](https://cypress.io/) is installed as the default testing tool for e2e, component and unit testing.
+To start cypress:
+
+```bash
+npm run dev # Your project should be running for e2e tests
+npm run e2e
+```
+
+Check out the [docs](https://docs.cypress.io/) for more info on how to use cypress.
+
+## Animations
+
+[Framer Motion](https://framer.com/motion) is used for animations. The `AnimatePresence` component that allows exit animations has already been setup in `/pages/_app.tsx`.
+
+## SVG
+
+[SVGR](https://react-svgr.com/) is used to import SVG files. To import an SVG file, add it to the `/public` directory (ideally in the `svg` folder):
+
+```
+📁 public
+    📁 svg
+        📄 logo.svg
+```
+
+Then, in your component, import the SVG file:
+
+```tsx
+import Logo from "@/public/svg/logo.svg";
+...
+<Logo width="5rem"/>
+```
+
+## Icons
+
+[React Icons](https://react-icons.github.io/react-icons/) is used for icons. You can search for icons [here](https://react-icons.github.io/react-icons/search) and click to copy the icon name. Then import them like:
+
+```tsx
+import { FaTwitter } from "@/icons/fa";
+import { IoIosArrowForward } from "@/icons/io";
+import { MdArrowBack } from "@/icons/md";
+// And so on...
+...
+<FaTwitter/>
+<IoIosArrowForward/>
+<MdArrowBack/>
+```
+
+To use the Chakra theme with the icons:
+
+```tsx
+import { FaTwitter } from "@/icons/fa";
+import { Icon } from "chakra/react"
+...
+<Icon
+    as={FaTwitter}
+    width="1.5rem"
+    height="1.5rem"
+    color="brand.primary"
+/>
+```
