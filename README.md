@@ -262,11 +262,45 @@ npm run cms
 
 To use the client:
 
-```ts
+```tsx
 import sanity from "@/cms/sanityClient";
 
 // `posts` is a schema
 const posts = await sanity.getAll("posts");
+```
+
+Example usage in getStaticProps:
+
+```tsx
+import sanity from "@/cms/sanityClient";
+
+export const getStaticProps = async () => {
+    const posts = await sanity.getAll("posts");
+    return {
+        props: {
+            posts,
+        },
+    };
+};
+
+// Get typings for the static props
+type UnwrapPromise<T> = T extends Promise<infer U> ? U : T;
+type Props = UnwrapPromise<ReturnType<typeof getStaticProps>>["props"];
+
+const Articles: NextPage<Props> = (props) => {
+    return(
+            {props.posts.map((post) => (
+                <Heading>
+                    {post.title}
+                </Heading>
+                <Text>
+                    {post.body}
+                </Text>
+            ))}
+
+
+    )
+}
 ```
 
 The default client is a [sanity-codegen](https://www.sanity.io/plugins/sanity-codegen) client that allows us to use typescript for our schemas. You can use any other client you want like [next-sanity](https://github.com/sanity-io/next-sanity).

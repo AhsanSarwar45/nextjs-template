@@ -32,4 +32,4 @@ fs.writeFileSync(`${dir}/config.ts`, config(projectId));
 execSync("npx sanity-codegen", options);
 
 console.log(`Sanity CMS has been initialized successfully! 🎉`);
-console.log(`Type 'sanity start' to start the Studio.`);
+console.log(`Type 'npm run cms' to start the Studio.`);
