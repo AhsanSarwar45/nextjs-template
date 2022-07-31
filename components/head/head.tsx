@@ -33,7 +33,7 @@ const Head = (props: HeaderProps) => {
             <meta property="og:description" content={props.description} />
             <meta property="og:image" content={props.imageUrl} />
 
-            <meta name="twitter:card" content="summary_small_image" />
+            <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={props.description} />
             <meta name="twitter:creator" content={twitterUsername} />
@@ -45,7 +45,7 @@ const Head = (props: HeaderProps) => {
 Head.defaultProps = {
     title: "",
     description: "",
-    imageUrl: "",
+    imageUrl: "/public/images/test.png",
     robots: "",
 };
 
