@@ -40,12 +40,8 @@ const Nav = (props: NavProps) => {
                 <HStack role="list" spacing="4rem">
                     {/* Put nav links here */}
                     {links.map((link) => (
-                        <div role="listitem">
-                            <Link
-                                key={link.label}
-                                label={link.label}
-                                href={link.href}
-                            />
+                        <div key={link.label} role="listitem">
+                            <Link label={link.label} href={link.href} />
                         </div>
                     ))}
                 </HStack>
@@ -90,14 +86,15 @@ export const CollapsibleNav = (props: NavProps) => {
                 >
                     {/* Menu content goes here */}
                     <nav>
-                        <VStack>
+                        <VStack role="list">
                             {links.map((link) => (
-                                <Link
-                                    key={link.label}
-                                    label={link.label}
-                                    href={link.href}
-                                    fontSize="2rem"
-                                />
+                                <div key={link.label} role="listitem">
+                                    <Link
+                                        label={link.label}
+                                        href={link.href}
+                                        fontSize="2rem"
+                                    />
+                                </div>
                             ))}
                         </VStack>
                     </nav>
