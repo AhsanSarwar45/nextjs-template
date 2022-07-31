@@ -19,7 +19,7 @@ const NavBar = (props: NavBarProps) => {
             direction={props.direction}
             position="fixed"
             top="0"
-            width="100%"
+            width="full"
             alignItems="center"
             justifyContent="space-between"
             paddingX={{ xs: "1rem", md: "4rem" }}
@@ -78,7 +78,7 @@ export const CollapsibleNav = (props: NavProps) => {
                     position="fixed"
                     top="0"
                     left="0"
-                    width="100vw"
+                    width="full"
                     height="100vh"
                     bgColor="brand.primary"
                     zIndex={30}
@@ -94,6 +94,7 @@ export const CollapsibleNav = (props: NavProps) => {
                                     key={link.label}
                                     label={link.label}
                                     href={link.href}
+                                    fontSize="2rem"
                                 />
                             ))}
                         </VStack>

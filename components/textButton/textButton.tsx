@@ -10,12 +10,14 @@ import { TextButtonProps } from "./types";
 const TextButton = (props: TextButtonProps) => {
     const animationControls = useAnimation();
 
+    const { label, onClick, isUnderlined, ...textProps } = props;
+
     const transition = {
         duration: 0.3,
     };
     const animation: Variants = {
         initial: {
-            scaleX: props.underlined ? 1 : 0,
+            scaleX: props.isUnderlined ? 1 : 0,
             transition: transition,
         },
         onHover: {
@@ -38,11 +40,7 @@ const TextButton = (props: TextButtonProps) => {
             userSelect={"none"}
             onClick={props.onClick}
         >
-            <Text
-                fontSize={props.fontSize}
-                fontWeight="link"
-                color={props.color}
-            >
+            <Text fontWeight="link" {...textProps}>
                 {props.label}
             </Text>
 

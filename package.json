@@ -9,8 +9,8 @@
     "lint": "next lint",
     "e2e": "npx cypress open",
     "cms": "cd cms && sanity start",
+    "gen-sanity-types": "cd cms && npx sanity-codegen",
     "gen:theme-typings": "chakra-cli tokens themes/theme.ts",
-    "postinstall": "npm run gen:theme-typings",
     "tsnode": "node --loader ts-node/esm --no-warnings",
     "gen-component": "npm run tsnode ./scripts/genComponentScript.mts",
     "init-cms": "npm run tsnode ./scripts/initSanityCmsScript.mts",
@@ -18,7 +18,6 @@
     "remove-contact": "npm run tsnode ./scripts/removeContactScript.mts"
   },
   "dependencies": {
-    "@chakra-ui/cli": "^2.1.2",
     "@chakra-ui/react": "^2.2.4",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
@@ -31,6 +30,7 @@
     "react-use": "^17.4.0"
   },
   "devDependencies": {
+    "@chakra-ui/cli": "^2.1.2",
     "@svgr/webpack": "^6.3.1",
     "@types/async": "^3.2.15",
     "@types/fs-extra": "^9.0.13",

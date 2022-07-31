@@ -1,0 +1,27 @@
+name: Deploy CMS
+on: [push]
+jobs:
+    sanity-deploy:
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: ./cms
+        name: Deploy Sanity
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Setup Node.js environment
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Install Sanity CLI
+              run: npm install -g @sanity/cli
+
+            - name: Deploy Sanity
+              run: |
+                  set -e
+                  SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" sanity deploy

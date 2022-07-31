@@ -3,9 +3,15 @@
   /* outline: 1px solid #f00 !important; */
 }
 
+html, body, main, footer {
+  width: 100%;
+}
+
 /* ::-webkit-scrollbar {
   width: 18px;
     height: 18px;
+
+    
     background-color: transparent;
 }
 

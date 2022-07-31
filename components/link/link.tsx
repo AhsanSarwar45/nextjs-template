@@ -5,19 +5,19 @@ import { useRouter } from "next/router";
 import { LinkProps } from "./types";
 
 // Project imports
-import Anchor from "../anchor/anchor";
-import TextButton from "../textButton/textButton";
+import Anchor from "@/components/anchor";
+import TextButton from "@/components/textButton";
 
 const Link = (props: LinkProps) => {
     const router = useRouter();
+    const { href, label, isExternal, ...textProps } = props;
 
     return (
         <Anchor href={props.href} isExternal={props.isExternal}>
             <TextButton
                 label={props.label}
-                color={props.color}
-                fontSize={props.fontSize}
-                underlined={router.pathname === props.href}
+                isUnderlined={router.pathname === props.href}
+                {...textProps}
             />
         </Anchor>
     );

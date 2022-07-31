@@ -1,7 +1,6 @@
-export interface TextButtonProps {
+import { TextProps } from "@chakra-ui/react";
+
+export interface TextButtonProps extends TextProps {
     label: string;
-    onClick: () => void;
-    color: string;
-    fontSize: any;
-    underlined: boolean;
+    isUnderlined: boolean;
 }

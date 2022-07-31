@@ -1,7 +1,8 @@
+// External imports
 import type { NextPage } from "next";
 
-import AnimatedPage from "@/components/page";
-import FormInput from "@/components/formInput";
+// Project imports
+import { AnimatedPage } from "@/components/page";
 
 const Home: NextPage = () => {
     return (
@@ -9,20 +10,7 @@ const Home: NextPage = () => {
             title="Home Of The NextJS Portfolio Template"
             description="An OpenSource Template For NextJS Portfolio With Multiple Cool Features"
             imageUrl="/public/images/test.jpg"
-            // robots="index, follow"
-            height="100vh"
-            justifyContent="center"
-        >
-            <FormInput label="Name" labelPosition="placeholder" />
-            <FormInput label="Email" placeholder="example@site.com" />
-            <FormInput label="Age" isInvalid error="Incorrect" />
-            <FormInput
-                label="Country"
-                isInvalid
-                error="Incorrect"
-                errorPosition="icon"
-            />
-        </AnimatedPage>
+        ></AnimatedPage>
     );
 };
 

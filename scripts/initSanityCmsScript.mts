@@ -12,15 +12,17 @@ if (fs.existsSync(dir)) {
 fs.mkdirSync(dir);
 
 const options = { stdio: [0, 1, 2], cwd: dir };
+const rootOptions = { stdio: [0, 1, 2] };
 
 execSync("npm i -g @sanity/cli", options);
 execSync(
-    `sanity init --provider github --dataset production --output-path ${dir}`,
-    options
+    `sanity init --provider github --dataset production --output-path "${dir}"`,
+    rootOptions
 );
-execSync("npm i --save-dev sanity-codegen prettier @sanity/image-url", {
-    stdio: [0, 1, 2],
-});
+execSync(
+    "npm i --save-dev sanity-codegen prettier @sanity/image-url",
+    rootOptions
+);
 fs.writeFileSync(`${dir}/sanity-codegen.config.ts`, codegenConfig);
 fs.writeFileSync(`${dir}/sanityClient.ts`, client);
 const projectId = JSON.parse(
@@ -28,6 +30,10 @@ const projectId = JSON.parse(
 ).api.projectId;
 fs.writeFileSync(`${dir}/config.ts`, config(projectId));
 execSync("npx sanity-codegen", options);
+fs.copyFileSync(
+    "./scripts/sanityTemplate/deploy-cms.yml",
+    "./.github/workflows/deploy-cms.yml"
+);
 
 console.log(`Sanity CMS has been initialized successfully! 🎉`);
-console.log(`Type 'sanity start' to start the Studio.`);
+console.log(`Type 'npm run cms' to start the Studio.`);
