@@ -6,8 +6,11 @@ import { useRouter } from "next/router";
 // Component imports
 import { HeaderProps } from "./types";
 
+// Project imports
+import config from "../../config.json";
+
 const Head = (props: HeaderProps) => {
-    const twitterUsername = "";
+    const twitterUsername = config.twitterUsername;
     const baseUrl = "localhost:3000";
 
     const router = useRouter();
@@ -43,9 +46,9 @@ const Head = (props: HeaderProps) => {
 };
 
 Head.defaultProps = {
-    title: "",
-    description: "",
-    imageUrl: "/public/images/test.png",
+    title: config.title,
+    description: config.description,
+    imageUrl: config.imageUrl,
     robots: "",
 };
 

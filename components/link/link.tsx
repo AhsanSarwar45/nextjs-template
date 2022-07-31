@@ -26,6 +26,7 @@ const Link = (props: LinkProps) => {
 Link.defaultProps = {
     color: "text.primary",
     fontSize: "1rem",
+    // role: "",
     isExternal: false,
 };
 
