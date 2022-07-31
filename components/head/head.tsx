@@ -2,13 +2,15 @@
 import React from "react";
 import NextHead from "next/head";
 import { useRouter } from "next/router";
+import absoluteUrl from "next-absolute-url";
 
 // Component imports
 import { HeaderProps } from "./types";
 
 const Head = (props: HeaderProps) => {
     const twitterUsername = "";
-    const baseUrl = "localhost:3000";
+
+    const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL || process.env.URL;
 
     const router = useRouter();
 

@@ -4,11 +4,11 @@ const sendEmail = (req: NextApiRequest, res: NextApiResponse) => {
     const nodeoutlook = require("nodejs-nodemailer-outlook");
     nodeoutlook.sendEmail({
         auth: {
-            user: "",
-            pass: "",
+            user: process.env.INTERMEDIARY_EMAIL,
+            pass: process.env.INTERMEDIARY_PASSWORD,
         },
-        from: "",
-        to: "",
+        from: process.env.INTERMEDIARY_EMAIL,
+        to: process.env.EMAIL,
         subject: `Message From ${req.body.name}`,
         text: req.body.message + " | Sent from: " + req.body.email,
         html: `

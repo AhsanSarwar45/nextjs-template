@@ -275,6 +275,10 @@ This adds
 -   A `contact` api endpoint in `/api` that sends the email
 -   A `ContactData` interface in `/interfaces` that defines the contact data
 
+The email is sent to your email address through an intermediary address. This is a rudimentary method. You should consider replacing it with a email service like [Mailgun](https://mailgun.com/) or [SendGrid](https://sendgrid.com/).
+
+To specify the required email info, copy the `env.local.example` file to a `env.local` file and fill out the variables.
+
 ## Theming
 
 The project already has Chakra's [recommended](https://chakra-ui.com/docs/styled-system/customize-theme#scaling-out-your-project) theme directory structure set up.
