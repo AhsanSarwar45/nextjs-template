@@ -54,7 +54,7 @@ Head.defaultProps = {
     description: "",
     socialDescription: "",
     keywords: "",
-    imageUrl: "",
+    imageUrl: "/public/images/test.png",
     robots: "",
     type: "website",
     language: "en",
