@@ -9,7 +9,7 @@ const Home: NextPage = () => {
         <AnimatedPage
             title="Home Of The NextJS Portfolio Template"
             description="An OpenSource Template For NextJS Portfolio With Multiple Cool Features"
-            imageUrl="https://ahsan-nextjs-template.vercel.app/images/test.jpg"
+            imageUrl="https://ahsan-nextjs-template.vercel.app/images/test.png"
         ></AnimatedPage>
     );
 };
