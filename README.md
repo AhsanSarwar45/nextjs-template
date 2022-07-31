@@ -20,6 +20,7 @@ npm run dev
 ```
 
 ## Demo
+
 https://ahsan-nextjs-template.vercel.app/
 
 ## Table of Contents
@@ -44,7 +45,7 @@ https://ahsan-nextjs-template.vercel.app/
 1. [Animations](#animations)
 1. [SVG](#svg)
 1. [Icons](#icons)
-1. [CI](#ci)
+1. [CI/CD](#cicd)
 
 ## Components
 
@@ -421,7 +422,7 @@ import { Icon } from "chakra/react"
 />
 ```
 
-## CI
+## CI/CD
 
 [Github Actions](https://docs.github.com/en/actions/get-started) is used for CI. A `run-cypress-tests.yml` file is included in `.github/workflows/` that runs cypress tests on each push.
 

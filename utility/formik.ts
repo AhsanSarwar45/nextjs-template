@@ -8,6 +8,14 @@ import {
     SubmitErrorCallback,
 } from "@/types/fetchCallbacks";
 
+/**
+ *
+ * @param endpoint The endpoint to send the form data to
+ * @param data The form data
+ * @param formikProps Formik props
+ * @param onSuccess Callback to run when the form is successfully submitted
+ * @param onError Callback to run when the form fails to submit
+ */
 export const handleFormikSubmit = <T>(
     endpoint: string,
     data: T,
