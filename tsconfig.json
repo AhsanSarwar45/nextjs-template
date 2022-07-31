@@ -57,7 +57,10 @@
       ],
       "@/cms/*": [
         "cms/*"
-      ]
+      ],
+      "@/config": [
+        "config.ts"
+      ],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.mts"],

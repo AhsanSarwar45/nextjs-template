@@ -2,16 +2,15 @@
 import React from "react";
 import NextHead from "next/head";
 import { useRouter } from "next/router";
-import absoluteUrl from "next-absolute-url";
 
 // Component imports
 import { HeaderProps } from "./types";
+import { metaConfig } from "@/config";
 
 // Project imports
-import config from "@/config.json";
 
 const Head = (props: HeaderProps) => {
-    const twitterUsername = config.twitterUsername;
+    const twitterUsername = metaConfig.twitterUsername;
     const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL || process.env.URL;
 
     const router = useRouter();
@@ -54,9 +53,9 @@ const Head = (props: HeaderProps) => {
 };
 
 Head.defaultProps = {
-    title: config.title,
-    description: config.description,
-    imageUrl: config.imageUrl,
+    title: metaConfig.title,
+    description: metaConfig.description,
+    imageUrl: metaConfig.imageUrl,
     socialDescription: "",
     keywords: "",
     robots: "",

@@ -1,14 +1,13 @@
 // External imports
 import { HStack, Icon } from "@chakra-ui/react";
-import React from "react";
 import { BsFacebook, BsFillEnvelopeFill, BsInstagram } from "react-icons/bs";
-import Anchor from "../anchor";
 
 // Component imports
 import { SocialIconProps, SocialsProps } from "./types";
 
 // Project imports
-import config from "../../config.json";
+import { metaConfig, socialsConfig } from "@/config";
+import Anchor from "@/components/anchor";
 
 const SocialIcon = (props: SocialIconProps) => {
     const InternalIcon = () => (
@@ -42,18 +41,18 @@ const Socials = (props: SocialsProps) => {
     return (
         <HStack spacing="2rem" {...props}>
             <SocialIcon
-                href={config.instagramLink}
-                ariaLabel={`${config.title} instagram`}
+                href={socialsConfig.instagramLink}
+                ariaLabel={`${metaConfig.title} instagram`}
                 icon={BsInstagram}
             />
             <SocialIcon
-                href={config.facebookLink}
-                ariaLabel={`${config.title} facebook`}
+                href={socialsConfig.facebookLink}
+                ariaLabel={`${metaConfig.title} facebook`}
                 icon={BsFacebook}
             />
             <SocialIcon
-                href={`mailto: ${config.email} `}
-                ariaLabel={`Send Email to ${config.email} `}
+                href={`mailto: ${socialsConfig.email} `}
+                ariaLabel={`Send Email to ${socialsConfig.email} `}
                 icon={BsFillEnvelopeFill}
             />
         </HStack>
