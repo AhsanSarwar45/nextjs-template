@@ -11,7 +11,7 @@ import { links } from "./links";
 import useFullScreenMenu from "@/hooks/useFullScreenMenu";
 import { motion, useAnimation } from "framer-motion";
 import Link from "@/components/link";
-import VercelLogo from "@/public/vercel.svg";
+import Logo from "@/public/vercel.svg";
 
 const NavBar = (props: NavBarProps) => {
     return (
@@ -35,16 +35,14 @@ const Nav = (props: NavProps) => {
     return (
         <NavBar direction={props.direction}>
             {/* Put ant logos here */}
-            <VercelLogo width="6rem" />
+            <Logo width="6rem" aria-label="website logo" />
             <nav>
-                <HStack spacing="4rem">
+                <HStack role="list" spacing="4rem">
                     {/* Put nav links here */}
                     {links.map((link) => (
-                        <Link
-                            key={link.label}
-                            label={link.label}
-                            href={link.href}
-                        />
+                        <div key={link.label} role="listitem">
+                            <Link label={link.label} href={link.href} />
+                        </div>
                     ))}
                 </HStack>
             </nav>
@@ -63,7 +61,7 @@ export const CollapsibleNav = (props: NavProps) => {
     return (
         <NavBar direction={props.direction}>
             {/* Put ant logos here */}
-            <VercelLogo width="100px" />
+            <Logo width="100px" />
             <>
                 <Flex
                     as={motion.div}
@@ -88,14 +86,15 @@ export const CollapsibleNav = (props: NavProps) => {
                 >
                     {/* Menu content goes here */}
                     <nav>
-                        <VStack>
+                        <VStack role="list">
                             {links.map((link) => (
-                                <Link
-                                    key={link.label}
-                                    label={link.label}
-                                    href={link.href}
-                                    fontSize="2rem"
-                                />
+                                <div key={link.label} role="listitem">
+                                    <Link
+                                        label={link.label}
+                                        href={link.href}
+                                        fontSize="2rem"
+                                    />
+                                </div>
                             ))}
                         </VStack>
                     </nav>

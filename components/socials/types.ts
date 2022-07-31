@@ -5,6 +5,7 @@ export interface SocialIconProps {
     icon: IconType;
     onMouseEnter: () => void;
     href: string;
+    ariaLabel: string;
 }
 
 export interface SocialsProps extends StackProps {}

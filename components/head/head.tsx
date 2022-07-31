@@ -7,9 +7,11 @@ import absoluteUrl from "next-absolute-url";
 // Component imports
 import { HeaderProps } from "./types";
 
-const Head = (props: HeaderProps) => {
-    const twitterUsername = "";
+// Project imports
+import config from "@/config.json";
 
+const Head = (props: HeaderProps) => {
+    const twitterUsername = config.twitterUsername;
     const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL || process.env.URL;
 
     const router = useRouter();
@@ -52,11 +54,11 @@ const Head = (props: HeaderProps) => {
 };
 
 Head.defaultProps = {
-    title: "",
-    description: "",
+    title: config.title,
+    description: config.description,
+    imageUrl: config.imageUrl,
     socialDescription: "",
     keywords: "",
-    imageUrl: "/public/images/test.png",
     robots: "",
     type: "website",
     language: "en",

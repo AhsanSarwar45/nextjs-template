@@ -8,15 +8,15 @@ import Anchor from "../anchor";
 import { SocialIconProps, SocialsProps } from "./types";
 
 // Project imports
+import config from "../../config.json";
 
 const SocialIcon = (props: SocialIconProps) => {
-    // const { onCopy } = useClipboard("arcane_artist@gmail.com");
-
     const InternalIcon = () => (
         <Icon
             as={props.icon}
-            width="1.5rem"
-            height="1.5rem"
+            aria-label={props.ariaLabel}
+            width="1.2rem"
+            height="1.2rem"
             fontWeight="body"
             onMouseEnter={props.onMouseEnter}
             display="block"
@@ -35,14 +35,27 @@ const SocialIcon = (props: SocialIconProps) => {
 SocialIcon.defaultProps = {
     onMouseEnter: () => {},
     href: "",
+    ariaLabel: "",
 };
 
 const Socials = (props: SocialsProps) => {
     return (
         <HStack spacing="2rem" {...props}>
-            <SocialIcon href="#" icon={BsInstagram} />
-            <SocialIcon href="#" icon={BsFacebook} />
-            <SocialIcon href="mailto:" icon={BsFillEnvelopeFill} />
+            <SocialIcon
+                href={config.instagramLink}
+                ariaLabel={`${config.title} instagram`}
+                icon={BsInstagram}
+            />
+            <SocialIcon
+                href={config.facebookLink}
+                ariaLabel={`${config.title} facebook`}
+                icon={BsFacebook}
+            />
+            <SocialIcon
+                href={`mailto: ${config.email} `}
+                ariaLabel={`Send Email to ${config.email} `}
+                icon={BsFillEnvelopeFill}
+            />
         </HStack>
     );
 };

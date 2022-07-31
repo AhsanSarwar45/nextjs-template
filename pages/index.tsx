@@ -7,9 +7,9 @@ import { AnimatedPage } from "@/components/page";
 const Home: NextPage = () => {
     return (
         <AnimatedPage
-            title="Home Of The NextJS Portfolio Template"
-            description="An OpenSource Template For NextJS Portfolio With Multiple Cool Features"
-            imageUrl="https://ahsan-nextjs-template.vercel.app/images/test.png"
+            title="NextJS-ChakraUI Template"
+            description="A template For NextJS that is accessibility and seo friendly "
+            imageUrl="https://ahsan-nextjs-template.vercel.app/images/socialCardImage.png"
         ></AnimatedPage>
     );
 };
