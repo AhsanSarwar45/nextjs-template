@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+// /** @type {import('withPWA') from "next-pwa" } */
+const withPWA = require("next-pwa");
+
+const prod = process.env.NODE_ENV === "production";
+
+const nextConfig = withPWA({
     reactStrictMode: true,
     swcMinify: true,
     webpack(config) {
@@ -15,6 +20,16 @@ const nextConfig = {
         locales: ["en"],
         defaultLocale: "en",
     },
-};
+    pwa: {
+        dest: "public",
+        disable: prod ? false : true,
+    },
+});
 
 module.exports = nextConfig;
+
+// module.exports = withPWA({
+//     pwa: {
+//         dest: "public",
+//     },
+// });

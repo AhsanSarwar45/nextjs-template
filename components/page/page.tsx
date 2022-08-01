@@ -52,13 +52,13 @@ const pageDefaultProps = {
 Page.defaultProps = pageDefaultProps;
 
 export const AnimatedPage = (props: AnimatedPageProps) => {
-    const { animationVariants, ...pageProps } = props;
+    const { animationVariants, animateContentOnly, ...pageProps } = props;
 
-    return props.animateContentOnly ? (
+    return animateContentOnly ? (
         <Page {...pageProps}>
             <motion.main
                 key={props.title}
-                variants={props.animationVariants as any}
+                variants={animationVariants as any}
                 initial="initial"
                 animate="enter"
                 exit="exit"
@@ -69,7 +69,7 @@ export const AnimatedPage = (props: AnimatedPageProps) => {
     ) : (
         <motion.main
             key={props.title}
-            variants={props.animationVariants as any}
+            variants={animationVariants as any}
             initial="initial"
             animate="enter"
             exit="exit"
