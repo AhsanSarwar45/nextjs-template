@@ -2,9 +2,7 @@
 // /** @type {import('withPWA') from "next-pwa" } */
 const withPWA = require("next-pwa");
 
-const prod = process.env.NODE_ENV === "production";
-
-const nextConfig = withPWA({
+const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
     webpack(config) {
@@ -16,17 +14,16 @@ const nextConfig = withPWA({
 
         return config;
     },
-    i18n: {
-        locales: ["en"],
-        defaultLocale: "en",
+    devIndicators: {
+        autoPrerender: false,
     },
     pwa: {
         dest: "public",
-        disable: prod ? false : true,
     },
-});
+};
 
-module.exports = nextConfig;
+module.exports =
+    process.env.NODE_ENV === "development" ? nextConfig : withPWA(nextConfig);
 
 // module.exports = withPWA({
 //     pwa: {
