@@ -22,8 +22,7 @@ const nextConfig = {
         dest: "public",
         register: true,
         skipWaiting: true,
-        runtimeCaching: true,
-        buildExcludes: [/middleware-manifest.json$/]
+        runtimeCaching,
     },
 };
 
