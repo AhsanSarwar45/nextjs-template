@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
-// /** @type {import('withPWA') from "next-pwa" } */
+
 const withPWA = require("next-pwa");
+const runtimeCaching = require("next-pwa/cache");
 
 const nextConfig = {
     reactStrictMode: true,
@@ -21,6 +22,7 @@ const nextConfig = {
         dest: "public",
         register: true,
         skipWaiting: true,
+        runtimeCaching,
     },
 };
 
