@@ -11,7 +11,7 @@ import { links } from "./links";
 import useFullScreenMenu from "@/hooks/useFullScreenMenu";
 import { motion, useAnimation } from "framer-motion";
 import Link from "@/components/link";
-import Logo from "@/public/vercel.svg";
+import Logo from "@/components/logo";
 
 const NavBar = (props: NavBarProps) => {
     return (
@@ -61,7 +61,7 @@ export const CollapsibleNav = (props: NavProps) => {
     return (
         <NavBar direction={props.direction}>
             {/* Put ant logos here */}
-            <Logo width="100px" />
+            <Logo />
             <>
                 <Flex
                     as={motion.div}

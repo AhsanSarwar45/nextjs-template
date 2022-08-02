@@ -60,7 +60,7 @@ const TextButton = (props: TextButtonProps) => {
 TextButton.defaultProps = {
     color: "text.primary",
     fontSize: "1rem",
-    underlined: false,
+    isUnderlined: false,
     onClick: () => {},
 };
 

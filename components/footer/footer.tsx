@@ -1,11 +1,11 @@
 // External imports
-import { HStack, VStack, Text, Flex } from "@chakra-ui/react";
+import { Text, Flex } from "@chakra-ui/react";
 
 // Component imports
 
 // Project imports
-import Logo from "@/public/vercel.svg";
 import Socials from "@/components/socials";
+import Logo from "@/components/logo";
 
 const Footer = () => {
     return (
@@ -21,7 +21,7 @@ const Footer = () => {
                 alignItems="center"
                 justifyContent="space-between"
             >
-                <Logo aria-label="website logo" width="6rem" />
+                <Logo width="6rem" />
                 <Text>© 2022 NextJs Template. All rights reserved</Text>
                 <Socials />
             </Flex>

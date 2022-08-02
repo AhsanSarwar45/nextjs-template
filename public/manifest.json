@@ -1,11 +1,11 @@
 {
-    "theme_color": "#f4f3f1",
-    "background_color": "#f4f3f1",
-    "display": "standalone",
+    "theme_color": "#afafaf",
+    "background_color": "#ffffff",
+    "display": "minimal-ui",
     "scope": "/",
     "start_url": "/",
     "name": "NextJs Template",
-    "short_name": "NextJs Temp",
+    "short_name": "NextJs Template",
     "description": "A comprehensive Next JS template using Chakra UI, Sanity, Cypress",
     "icons": [
         {
